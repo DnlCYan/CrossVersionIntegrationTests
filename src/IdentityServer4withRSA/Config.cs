@@ -11,7 +11,20 @@ namespace IdentityServer4withRSA
             {
                 new ApiResource("api")
                 {
-                    ApiSecrets = { new Secret("secret".Sha256()) }
+                    DisplayName = "api",
+                    ApiSecrets = { new Secret("secret".Sha256()) },
+                    Scopes = new List<string>{"api"}
+                }
+            };
+        }
+
+        public static IEnumerable<ApiScope> GetApiScopes()
+        {
+            return new List<ApiScope>
+            {
+                new ApiScope("api")
+                {
+
                 }
             };
         }
